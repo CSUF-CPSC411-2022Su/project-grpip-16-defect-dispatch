@@ -14,6 +14,8 @@
 		7A362B6B2851450D00F6CACA /* DefectDispatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362B6A2851450D00F6CACA /* DefectDispatchTests.swift */; };
 		7A362B752851450D00F6CACA /* DefectDispatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362B742851450D00F6CACA /* DefectDispatchUITests.swift */; };
 		7A362B772851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362B762851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift */; };
+		7A362B842851453C00F6CACA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7A362B832851453C00F6CACA /* .gitignore */; };
+		7A362B862851456900F6CACA /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 7A362B852851456900F6CACA /* .gitattributes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		7A362B702851450D00F6CACA /* DefectDispatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DefectDispatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A362B742851450D00F6CACA /* DefectDispatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectDispatchUITests.swift; sourceTree = "<group>"; };
 		7A362B762851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectDispatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7A362B832851453C00F6CACA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7A362B852851456900F6CACA /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 		7A362B4D2851450900F6CACA = {
 			isa = PBXGroup;
 			children = (
+				7A362B852851456900F6CACA /* .gitattributes */,
+				7A362B832851453C00F6CACA /* .gitignore */,
 				7A362B582851450900F6CACA /* DefectDispatch */,
 				7A362B692851450D00F6CACA /* DefectDispatchTests */,
 				7A362B732851450D00F6CACA /* DefectDispatchUITests */,
@@ -232,7 +238,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A362B612851450C00F6CACA /* Preview Assets.xcassets in Resources */,
+				7A362B842851453C00F6CACA /* .gitignore in Resources */,
 				7A362B5E2851450C00F6CACA /* Assets.xcassets in Resources */,
+				7A362B862851456900F6CACA /* .gitattributes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
