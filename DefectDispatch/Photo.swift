@@ -6,7 +6,23 @@
 //
 
 import Foundation
+import UIKit
 
-struct Photo {
+class Photo: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var imagePicked: UIImageView!
+    
+
+    @IBAction func openLibrary(sender: AnyObject){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary;
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
     
 }
+
+
