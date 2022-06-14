@@ -16,7 +16,8 @@
 		7A362B772851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362B762851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift */; };
 		7A362B842851453C00F6CACA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7A362B832851453C00F6CACA /* .gitignore */; };
 		7A362B862851456900F6CACA /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 7A362B852851456900F6CACA /* .gitattributes */; };
-		7A362BC02857025D00F6CACA /* ReportingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362BBF2857025D00F6CACA /* ReportingList.swift */; };
+		7A362BC22858580500F6CACA /* ReportingListUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362BC12858580500F6CACA /* ReportingListUI.swift */; };
+		7A362BC628585D3900F6CACA /* ReportingListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362BC528585D3900F6CACA /* ReportingListUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,8 @@
 		7A362B762851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectDispatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7A362B832851453C00F6CACA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7A362B852851456900F6CACA /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
-		7A362BBF2857025D00F6CACA /* ReportingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingList.swift; sourceTree = "<group>"; };
+		7A362BC12858580500F6CACA /* ReportingListUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingListUI.swift; sourceTree = "<group>"; };
+		7A362BC528585D3900F6CACA /* ReportingListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportingListUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,7 @@
 				7A362B5B2851450900F6CACA /* ContentView.swift */,
 				7A362B5D2851450C00F6CACA /* Assets.xcassets */,
 				7A362B5F2851450C00F6CACA /* Preview Content */,
-				7A362BBF2857025D00F6CACA /* ReportingList.swift */,
+				7A362BC12858580500F6CACA /* ReportingListUI.swift */,
 			);
 			path = DefectDispatch;
 			sourceTree = "<group>";
@@ -132,6 +134,7 @@
 			children = (
 				7A362B742851450D00F6CACA /* DefectDispatchUITests.swift */,
 				7A362B762851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift */,
+				7A362BC528585D3900F6CACA /* ReportingListUITests.swift */,
 			);
 			path = DefectDispatchUITests;
 			sourceTree = "<group>";
@@ -268,7 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A362BC02857025D00F6CACA /* ReportingList.swift in Sources */,
+				7A362BC22858580500F6CACA /* ReportingListUI.swift in Sources */,
 				7A362B5C2851450900F6CACA /* ContentView.swift in Sources */,
 				7A362B5A2851450900F6CACA /* DefectDispatchApp.swift in Sources */,
 			);
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A362B752851450D00F6CACA /* DefectDispatchUITests.swift in Sources */,
+				7A362BC628585D3900F6CACA /* ReportingListUITests.swift in Sources */,
 				7A362B772851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
