@@ -13,7 +13,8 @@ struct Report: Identifiable {
 }
 
 class ReportsViewModel: ObservableObject {
-    @Published var reports: [Report] = []
+    @Published var reports: [Report] = [
+    Report(title: "Test1")]
 }
 
 struct ReportingListUI: View {
