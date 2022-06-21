@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51B493462856B434003F6426 /* Speed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B493452856B434003F6426 /* Speed.swift */; };
+		51B4934A2856C229003F6426 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B493492856C229003F6426 /* SecondView.swift */; };
 		7A362B5A2851450900F6CACA /* DefectDispatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362B592851450900F6CACA /* DefectDispatchApp.swift */; };
 		7A362B5C2851450900F6CACA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362B5B2851450900F6CACA /* ContentView.swift */; };
 		7A362B5E2851450C00F6CACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A362B5D2851450C00F6CACA /* Assets.xcassets */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		51B493452856B434003F6426 /* Speed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speed.swift; sourceTree = "<group>"; };
+		51B493492856C229003F6426 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		7A362B562851450900F6CACA /* DefectDispatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DefectDispatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A362B592851450900F6CACA /* DefectDispatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectDispatchApp.swift; sourceTree = "<group>"; };
 		7A362B5B2851450900F6CACA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				7A362B5B2851450900F6CACA /* ContentView.swift */,
 				7A362B5D2851450C00F6CACA /* Assets.xcassets */,
 				7A362B5F2851450C00F6CACA /* Preview Content */,
+				51B493452856B434003F6426 /* Speed.swift */,
+				51B493492856C229003F6426 /* SecondView.swift */,
 			);
 			path = DefectDispatch;
 			sourceTree = "<group>";
@@ -265,7 +271,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51B493462856B434003F6426 /* Speed.swift in Sources */,
 				7A362B5C2851450900F6CACA /* ContentView.swift in Sources */,
+				51B4934A2856C229003F6426 /* SecondView.swift in Sources */,
 				7A362B5A2851450900F6CACA /* DefectDispatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
