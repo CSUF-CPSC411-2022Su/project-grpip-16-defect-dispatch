@@ -9,25 +9,21 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
+    @StateObject var manager = DefectsManager()
     var body: some View {
-            VStack {
-                VStack {
-                    Text("Share a Picture")
-                        .padding()
-                VStack{
-                    Button(action: {
-                        print("Opens Library")
-                    }) {
-                        Text("Open Library")
-                    }.padding()
-                Button(action: {
-                        print("Opens Camera")
-                    }) {
-                        Text("Open Camera")
-                }.padding()
+        TabView {
+            DefectsList()
+                .tabItem {
+                    Image(systemName: "car")
+                    Text("Defects")
                 }
-            }
-        }
+            AddDefects()
+                .tabItem{
+                    Image(systemName: "plus")
+                    Text("Add Defect")
+                }
+
+        }.environmentObject(manager)
     }
 }
 
