@@ -6,16 +6,31 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
+    @StateObject var manager = DefectsManager()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            DefectsList()
+                .tabItem {
+                    Image(systemName: "car")
+                    Text("Defects")
+                }
+            AddDefects()
+                .tabItem{
+                    Image(systemName: "plus")
+                    Text("Add Defect")
+                }
+
+        }.environmentObject(manager)
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
+
