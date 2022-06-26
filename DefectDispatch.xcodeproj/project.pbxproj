@@ -20,6 +20,9 @@
 		E9318EF92861843C004137E9 /* DefectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9318EF82861843C004137E9 /* DefectList.swift */; };
 		E9318EFB286184FA004137E9 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9318EFA286184FA004137E9 /* Modifier.swift */; };
 		E9657EE528514CD60059B73A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9657EE428514CD60059B73A /* Photo.swift */; };
+		7A572A422858624400AB8C66 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A572A412858624400AB8C66 /* Report.swift */; };
+		7A79F6FD2867FEE2005CEF17 /* ReportConfirmationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79F6FC2867FEE2005CEF17 /* ReportConfirmationPage.swift */; };
+		7AC740812856983E00DEAB7F /* ReportingInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC740802856983E00DEAB7F /* ReportingInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		E9318EF82861843C004137E9 /* DefectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectList.swift; sourceTree = "<group>"; };
 		E9318EFA286184FA004137E9 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		E9657EE428514CD60059B73A /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		7A572A412858624400AB8C66 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		7A79F6FC2867FEE2005CEF17 /* ReportConfirmationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportConfirmationPage.swift; sourceTree = "<group>"; };
+		7AC740802856983E00DEAB7F /* ReportingInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportingInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,12 +116,15 @@
 			children = (
 				7A362B592851450900F6CACA /* DefectDispatchApp.swift */,
 				7A362B5B2851450900F6CACA /* ContentView.swift */,
+				7AC740802856983E00DEAB7F /* ReportingInterface.swift */,
+				7A572A412858624400AB8C66 /* Report.swift */,
 				7A362B5D2851450C00F6CACA /* Assets.xcassets */,
 				7A362B5F2851450C00F6CACA /* Preview Content */,
 				E9657EE428514CD60059B73A /* Photo.swift */,
 				E9318EF628618377004137E9 /* DefectViews.swift */,
 				E9318EF82861843C004137E9 /* DefectList.swift */,
 				E9318EFA286184FA004137E9 /* Modifier.swift */,
+				7A79F6FC2867FEE2005CEF17 /* ReportConfirmationPage.swift */,
 			);
 			path = DefectDispatch;
 			sourceTree = "<group>";
@@ -283,6 +292,9 @@
 				7A362B5C2851450900F6CACA /* ContentView.swift in Sources */,
 				7A362B5A2851450900F6CACA /* DefectDispatchApp.swift in Sources */,
 				E9318EF92861843C004137E9 /* DefectList.swift in Sources */,
+				7AC740812856983E00DEAB7F /* ReportingInterface.swift in Sources */,
+				7A79F6FD2867FEE2005CEF17 /* ReportConfirmationPage.swift in Sources */,
+				7A572A422858624400AB8C66 /* Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
