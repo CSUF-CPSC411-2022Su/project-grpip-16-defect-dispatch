@@ -7,55 +7,12 @@
 
 import SwiftUI
 
-struct DefectsList: View {
-    @EnvironmentObject var manager: DefectsManager
-    var body: some View {
-        VStack {
-            Text("Defect Dispatch")
-                .bold()
-                .modifier(DefectDispatchText())
-            List {
-                ForEach(manager.defects) {
-                    defects in
-                    VStack (alignment: .leading) {
-                        Text(defects.name)
-                            .font(.largeTitle)
-                        Text(defects.description)
-                            .font(.caption)
-                    }
-                }
-                .onDelete {
-                    offset in
-                    manager.defects.remove(atOffsets: offset)
-                }
-                .onMove {
-                    offset, index in
-                    manager.defects.move(fromOffsets: offset,
-                                            toOffset: index)
-                }
-
-            }
-        }
-    }
-}
-
-struct DefectDispatchText: ViewModifier {
-   func body(content: Content) -> some View {
-        content
-           .font(.custom("Courier New", size: 20))
-           .foregroundColor(Color.white)
-           .padding()
-           .background(Color.black)
-           .cornerRadius(10)
-    }
-}
-
 
 
 struct AddDefects: View {
     @SceneStorage("defectwalkName") var defectName: String = ""
     @SceneStorage("defectAddress") var defectAddress: String = ""
-    @EnvironmentObject var manager: DefectsManager
+    @EnvironmentObject var manager: ReportManager
     var body: some View {
         NavigationView {
             VStack {
@@ -95,9 +52,7 @@ struct AddDefects: View {
                     .modifier(TextEntry())
                     .padding(.bottom, 30)
                 Button(action: {
-                    manager.defects.append(Defects(name: defectName, description: defectAddress))
-                    defectName = ""
-                    defectAddress = ""
+                    manager.reports.append(Report())
                 }) {
                     Text("Submit")
                         .modifier(ButtonDesign())

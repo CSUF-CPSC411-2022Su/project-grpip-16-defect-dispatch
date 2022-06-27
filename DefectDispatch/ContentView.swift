@@ -9,15 +9,15 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
-    @StateObject var manager = DefectsManager()
+    @StateObject var manager = ReportManager()
     var body: some View {
         TabView {
-            DefectsList()
+            ReportList()
                 .tabItem {
                     Image(systemName: "car")
                     Text("Defects")
                 }
-            AddDefects()
+            ReportingInterface()
                 .tabItem{
                     Image(systemName: "plus")
                     Text("Add Defect")

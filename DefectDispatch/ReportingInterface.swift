@@ -1,35 +1,49 @@
 import SwiftUI
 
 struct ReportingInterface: View {
+    @EnvironmentObject var manager: ReportManager;
     @StateObject var report: Report = .init()
-    @State private var showingConfirmationPage: Bool = false;
+    @State private var showingReportPreview: Bool = false;
     @State private var showingErrorMessage: Bool = false;
     var body: some View {
         GeometryReader { _ in
             NavigationView {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack {
-                        NavigationLink(destination: ReportConfirmationPage().environmentObject(report), isActive: $showingConfirmationPage) {
+                        NavigationLink(destination: PreviewReport().environmentObject(report), isActive: $showingReportPreview) {
                             EmptyView()
                         }
                             .navigationBarBackButtonHidden(true)
                         Spacer()
                         HStack {
                             Spacer()
-                            Button("Submit", action: {
-                                if report.severity != .unknown && report.type != .undefined
+                            Button("Preview Report", action: {
+                                if report.valid
                                 {
-                                    showingConfirmationPage = true;
+                                    showingReportPreview = true;
                                 } else
                                 {
                                     showingErrorMessage = true
                                 }
                             }).alert("Error!", isPresented: $showingErrorMessage, actions: {}, message: {
-                                Text("All reports must have a severity and a type!")
+                                Text("All reports must have a name, a severity, and a type!")
                             })
                             .modifier(RoundedButton(padding: 5, background: .green, cornerRadius: 40))
                         }
                     }
+                    HStack {
+                        Text("Report Name")
+                            .bold()
+                        Spacer()
+                    }
+                    .padding(.bottom, 5)
+                    HStack {
+                        TextField("Report name", text: $report.name)
+                            .modifier(TextEntry())
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+
                     Menu {
                         Picker("Report Type", selection: $report.type, content: {
                             ForEach(ReportType.allCases) { reportType in
@@ -51,11 +65,17 @@ struct ReportingInterface: View {
                     }
                     .modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
                     HStack {
-                        Image(systemName: "location.north.circle")
-                        Text("Add Location")
+                        Text("Report address")
+                            .bold()
+                        Spacer()
                     }
-                    .modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
-                    
+                    HStack {
+                        TextField("Address" ,text: $report.address)
+                            .modifier(TextEntry())
+                            .foregroundColor(.black)
+                        Image(systemName: "location.north.circle").modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
+                            .rotationEffect(Angle(degrees: 15))
+                    }
                     Menu {
                         Picker("Severity Level", selection: $report.severity, content: {
                             ForEach(Severity.allCases) { severity in
@@ -70,7 +90,7 @@ struct ReportingInterface: View {
                         .modifier(SeverityButton(severity: $report.severity))
                     }
                     
-                    TextEditor(text: $report.details)
+                    TextEditor(text: $report.description)
                         .padding()
                         .border(.gray, width: 2.0)
                 }.padding()

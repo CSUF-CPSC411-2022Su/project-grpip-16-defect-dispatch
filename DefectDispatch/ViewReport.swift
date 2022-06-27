@@ -7,7 +7,16 @@
 
 import SwiftUI
 
-struct ReportConfirmationPage: View {
+struct PreviewReport: View {
+    var body: some View {
+        VStack
+        {
+            ViewReport()
+        }
+    }
+}
+
+struct ViewReport: View {
     @EnvironmentObject var report: Report
     var body: some View {
         GeometryReader { geometry in
@@ -45,11 +54,11 @@ struct ReportConfirmationPage: View {
                     }
                     .modifier(SeverityButton(severity: $report.severity))
                 }
-                if report.details != "" {
+                if report.description != "" {
                     Text("Description:")
                     HStack
                     {
-                        Text(report.details)
+                        Text(report.description)
                         Spacer()
                     }
                         .padding()

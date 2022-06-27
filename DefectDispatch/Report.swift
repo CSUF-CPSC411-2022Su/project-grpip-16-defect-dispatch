@@ -31,19 +31,27 @@ enum Severity: String, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
-class Report: ObservableObject {
+class Report: ObservableObject, Identifiable {
+    var id: UUID = UUID()
+    @Published var name: String
+    @Published var address: String
     var date: Date
     @Published var type: ReportType;
     @Published var severity: Severity
-    @Published var details: String
+    @Published var description: String
     var location: CLLocationCoordinate2D?
     var photo: Image?
+    var valid: Bool {
+        return severity != .unknown && type != .undefined && name != "" && address != ""
+    }
     
     init() {
         date = Date.now
         type = ReportType.undefined
         severity = Severity.unknown
-        details = ""
+        description = ""
+        name = ""
+        address = ""
     }
     
     func printType()
