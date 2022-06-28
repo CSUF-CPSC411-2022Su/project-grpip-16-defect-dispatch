@@ -12,6 +12,7 @@ import SwiftUI
 
 struct ReportList: View {
     @EnvironmentObject var manager: ReportManager
+    // Implement data persistence to keep data even when your application restarts. You can use app storage, scene storage, or file saving/loading.
     @AppStorage("darkMode") var darkMode = 1;
     
     init() {
@@ -31,6 +32,7 @@ struct ReportList: View {
                 })
             }
             NavigationView {
+                // Implement advanced features for your app such as grids, tabbed views, page views, menus, drawing, animation, transitions, gestures, and/or interaction with a web API.
                 List {
                     ForEach(manager.reports) { reports in
                         NavigationLink(destination: ReportView(description: reports.description, title: reports.name, address: reports.address)) {
@@ -137,7 +139,7 @@ struct listModifier: ViewModifier {
     }
 }
 
-
+// Implement data persistence to keep data even when your application restarts. You can use app storage, scene storage, or file saving/loading.
 class ReportManager: ObservableObject, Codable {
     @Published var reports: [Report] = []
     
