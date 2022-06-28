@@ -9,7 +9,7 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
-    @StateObject var manager = ReportManager()
+    @StateObject var manager = ReportManager.load()
     var body: some View {
         TabView {
             ReportList()

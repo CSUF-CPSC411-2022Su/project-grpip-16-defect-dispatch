@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct PreviewReport: View {
+    @EnvironmentObject var manager: ReportManager
+    @EnvironmentObject var report: Report
+    @Binding var showingReportPreview: Bool
+    @Binding var submitting: Bool
     var body: some View {
         VStack
         {
+            HStack {
+                Button("Back", action: {showingReportPreview = false})
+                Spacer()
+                Button("Submit", action: {
+                    submitting = true
+                })
+            }.padding()
             ViewReport()
         }
     }
@@ -27,23 +38,6 @@ struct ViewReport: View {
                     Text(report.type.rawValue)
                 }.foregroundColor(.white)
                     .modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
-
-                
-                if let photo = report.photo
-                {
-                    HStack {
-                        Image(systemName: "camera.aperture")
-                        Text("TODO: Add photo view")
-                    }.modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
-
-                }
-                if let location = report.location {
-                    HStack {
-                        Image(systemName: "location.north.circle")
-                        Text("TODO: Add location view")
-                    }.modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
-
-                }
 
                 VStack(alignment: .leading)
                 {

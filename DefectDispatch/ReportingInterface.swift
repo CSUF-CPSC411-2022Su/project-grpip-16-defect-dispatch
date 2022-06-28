@@ -10,15 +10,22 @@ struct ReportingInterface: View {
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     
+    @State private var submitting: Bool = false;
     var body: some View {
         GeometryReader { _ in
             NavigationView {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack {
-                        NavigationLink(destination: PreviewReport().environmentObject(report), isActive: $showingReportPreview) {
+                        NavigationLink(destination: PreviewReport(showingReportPreview: $showingReportPreview, submitting: $submitting).environmentObject(report).environmentObject(manager), isActive: $showingReportPreview) {
                             EmptyView()
                         }
                             .navigationBarBackButtonHidden(true)
+                            .onChange(of: submitting) { newValue in
+                                manager.reports.append(report.copy() as! Report)
+                                report.reinit()
+                                ReportManager.save(manager)
+                                showingReportPreview = false
+                            }
                         Spacer()
                         HStack {
                             Spacer()
@@ -148,7 +155,7 @@ struct RoundedButton: ViewModifier {
     }
 }
 
-struct ReportingInterfaceUI_Preview: PreviewProvider {
+struct ReportingInterface_Preview: PreviewProvider {
     static var previews: some View {
         ReportingInterface()
     }
