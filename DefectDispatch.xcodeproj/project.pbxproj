@@ -19,6 +19,13 @@
 		7A362B772851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A362B762851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift */; };
 		7A362B842851453C00F6CACA /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7A362B832851453C00F6CACA /* .gitignore */; };
 		7A362B862851456900F6CACA /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 7A362B852851456900F6CACA /* .gitattributes */; };
+		7A572A422858624400AB8C66 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A572A412858624400AB8C66 /* Report.swift */; };
+		7A79F6FD2867FEE2005CEF17 /* ViewReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A79F6FC2867FEE2005CEF17 /* ViewReport.swift */; };
+		7AC740812856983E00DEAB7F /* ReportingInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC740802856983E00DEAB7F /* ReportingInterface.swift */; };
+		E9318EF728618377004137E9 /* DefectViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9318EF628618377004137E9 /* DefectViews.swift */; };
+		E9318EF92861843C004137E9 /* ReportList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9318EF82861843C004137E9 /* ReportList.swift */; };
+		E9318EFB286184FA004137E9 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9318EFA286184FA004137E9 /* Modifier.swift */; };
+		E9657EE528514CD60059B73A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9657EE428514CD60059B73A /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +61,13 @@
 		7A362B762851450D00F6CACA /* DefectDispatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectDispatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7A362B832851453C00F6CACA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		7A362B852851456900F6CACA /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
+		7A572A412858624400AB8C66 /* Report.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		7A79F6FC2867FEE2005CEF17 /* ViewReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewReport.swift; sourceTree = "<group>"; };
+		7AC740802856983E00DEAB7F /* ReportingInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportingInterface.swift; sourceTree = "<group>"; };
+		E9318EF628618377004137E9 /* DefectViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefectViews.swift; sourceTree = "<group>"; };
+		E9318EF82861843C004137E9 /* ReportList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportList.swift; sourceTree = "<group>"; };
+		E9318EFA286184FA004137E9 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
+		E9657EE428514CD60059B73A /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,11 +122,18 @@
 			children = (
 				7A362B592851450900F6CACA /* DefectDispatchApp.swift */,
 				7A362B5B2851450900F6CACA /* ContentView.swift */,
+				7AC740802856983E00DEAB7F /* ReportingInterface.swift */,
+				7A572A412858624400AB8C66 /* Report.swift */,
 				7A362B5D2851450C00F6CACA /* Assets.xcassets */,
 				7A362B5F2851450C00F6CACA /* Preview Content */,
 				51B493452856B434003F6426 /* Speed.swift */,
 				51B493492856C229003F6426 /* SecondView.swift */,
 				519CA0AC2863DA2A003A56C6 /* ThirdView.swift */,
+				E9657EE428514CD60059B73A /* Photo.swift */,
+				E9318EF628618377004137E9 /* DefectViews.swift */,
+				E9318EF82861843C004137E9 /* ReportList.swift */,
+				E9318EFA286184FA004137E9 /* Modifier.swift */,
+				7A79F6FC2867FEE2005CEF17 /* ViewReport.swift */,
 			);
 			path = DefectDispatch;
 			sourceTree = "<group>";
@@ -276,9 +297,16 @@
 			files = (
 				51B493462856B434003F6426 /* Speed.swift in Sources */,
 				519CA0AD2863DA2A003A56C6 /* ThirdView.swift in Sources */,
+				E9657EE528514CD60059B73A /* Photo.swift in Sources */,
+				E9318EF728618377004137E9 /* DefectViews.swift in Sources */,
+				E9318EFB286184FA004137E9 /* Modifier.swift in Sources */,
 				7A362B5C2851450900F6CACA /* ContentView.swift in Sources */,
 				51B4934A2856C229003F6426 /* SecondView.swift in Sources */,
 				7A362B5A2851450900F6CACA /* DefectDispatchApp.swift in Sources */,
+				E9318EF92861843C004137E9 /* ReportList.swift in Sources */,
+				7AC740812856983E00DEAB7F /* ReportingInterface.swift in Sources */,
+				7A79F6FD2867FEE2005CEF17 /* ViewReport.swift in Sources */,
+				7A572A422858624400AB8C66 /* Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,13 +465,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DefectDispatch/Preview Content\"";
+				DEVELOPMENT_TEAM = DPGZ9D83YT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The camera will be used to take pictures of the defect.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,13 +496,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DefectDispatch/Preview Content\"";
+				DEVELOPMENT_TEAM = DPGZ9D83YT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "The camera will be used to take pictures of the defect.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
