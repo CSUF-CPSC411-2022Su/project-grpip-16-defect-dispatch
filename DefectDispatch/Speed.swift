@@ -7,16 +7,24 @@
 
 import Foundation
 
-class Speed {
+class Speed: ObservableObject{
   var total_mileage: Double
   var arriving_time: Double
-    
-  init(total_mileage: Double, at arriving_time: Double) {
-    self.total_mileage = total_mileage
-    self.arriving_time = arriving_time
+  @Published var ideal_speed: Double = 0
+    @Published var print_out: String = ""
+
+  init() {
+    self.total_mileage = 0
+    self.arriving_time = 0
   }
 
-  func calculate_ideal_speed() -> Double{
-      return 0 //need to be done
+  func calculate_ideal_speed(){
+      var temp: Double
+      let ratio: Double = 60
+      temp = total_mileage/arriving_time * ratio
+      ideal_speed = temp
+      
   }
+    
+
 }
