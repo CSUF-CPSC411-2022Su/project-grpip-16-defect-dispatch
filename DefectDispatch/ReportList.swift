@@ -30,13 +30,14 @@ struct ReportList: View {
                 .onDelete {
                     offset in
                     manager.reports.remove(atOffsets: offset)
+                    ReportManager.save(manager)
                 }
                 .onMove {
                     offset, index in
                     manager.reports.move(fromOffsets: offset,
                                             toOffset: index)
+                    ReportManager.save(manager)
                 }
-
             }
         }
     }
@@ -54,10 +55,54 @@ struct DefectDispatchText: ViewModifier {
 }
 
 
-class ReportManager: ObservableObject {
+class ReportManager: ObservableObject, Codable {
     @Published var reports: [Report] = []
     
     init() {
         
+    }
+    enum CodingKeys: CodingKey {
+        case reports
+    }
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        reports = try container.decode([Report].self, forKey: .reports)
+    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(reports, forKey: .reports)
+    }
+    static func load() -> ReportManager
+    {
+        let documentsDirectory =
+           FileManager.default.urls(for: .documentDirectory,
+           in: .userDomainMask).first!
+        let archiveURL =
+           documentsDirectory.appendingPathComponent("manager")
+           .appendingPathExtension("plist")
+        let propertyListDecoder = PropertyListDecoder()
+        if let retrievedManager = try? Data(contentsOf: archiveURL),
+            let decodedManager = try?
+            propertyListDecoder.decode(ReportManager.self,
+           from: retrievedManager) {
+            return decodedManager
+        } else {
+            return ReportManager()
+        }
+    }
+    static func save(_ manager: ReportManager)
+    {
+        let documentsDirectory =
+           FileManager.default.urls(for: .documentDirectory,
+           in: .userDomainMask).first!
+        let archiveURL =
+           documentsDirectory.appendingPathComponent("manager")
+           .appendingPathExtension("plist")
+        let propertyListEncoder = PropertyListEncoder()
+        if let encodedManager = try? propertyListEncoder.encode(manager) {
+           try? encodedManager.write(to: archiveURL,
+           options: .noFileProtection)
+            print("Saved")
+        }
     }
 }

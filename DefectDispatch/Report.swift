@@ -9,7 +9,7 @@ import Foundation
 import CoreLocation
 import SwiftUI
 
-enum ReportType: String, CaseIterable, Identifiable {
+enum ReportType: String, CaseIterable, Identifiable, Codable {
     static var allCases: [ReportType] {
         return [.pothole, .suggestion, .brokenLight]
     }
@@ -20,7 +20,7 @@ enum ReportType: String, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
-enum Severity: String, CaseIterable, Identifiable {
+enum Severity: String, CaseIterable, Identifiable, Codable {
     static var allCases: [Severity] {
         return [.high, .medium, .low]
     }
@@ -31,7 +31,7 @@ enum Severity: String, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
-class Report: ObservableObject, Identifiable {
+class Report: ObservableObject, Identifiable, Codable, NSCopying {
     var id: UUID = UUID()
     @Published var name: String
     @Published var address: String
@@ -39,8 +39,6 @@ class Report: ObservableObject, Identifiable {
     @Published var type: ReportType;
     @Published var severity: Severity
     @Published var description: String
-    var location: CLLocationCoordinate2D?
-    var photo: Image?
     var valid: Bool {
         return severity != .unknown && type != .undefined && name != "" && address != ""
     }
@@ -53,9 +51,49 @@ class Report: ObservableObject, Identifiable {
         name = ""
         address = ""
     }
+    func reinit() {
+        id = UUID()
+        date = Date.now
+        type = ReportType.undefined
+        severity = Severity.unknown
+        description = ""
+        name = ""
+        address = ""
+    }
     
+    func copy(with zone: NSZone? = nil) -> Any {
+        let encoder = JSONEncoder()
+        let decoder = JSONDecoder()
+        let copy = try! decoder.decode(Report.self, from:encoder.encode(self))
+        return copy
+    }
     func printType()
     {
         print(type.rawValue)
+    }
+    // Based on https://www.hackingwithswift.com/books/ios-swiftui/adding-codable-conformance-for-published-properties
+    enum CodingKeys: CodingKey {
+        case id, name, address, date, type, severity, description
+    }
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        address = try container.decode(String.self, forKey: .address)
+        date = try container.decode(Date.self, forKey: .date)
+        type = try container.decode(ReportType.self, forKey: .type)
+        severity = try container.decode(Severity.self, forKey: .severity)
+        description = try container.decode(String.self, forKey: .description)
+    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(address, forKey: .address)
+        try container.encode(date, forKey: .date)
+        try container.encode(type, forKey: .type)
+        try container.encode(severity, forKey: .severity)
+        try container.encode(description, forKey: .description)
+
     }
 }
