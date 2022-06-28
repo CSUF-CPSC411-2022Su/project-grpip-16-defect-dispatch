@@ -1,10 +1,15 @@
 import SwiftUI
 
 struct ReportingInterface: View {
+    
     @EnvironmentObject var manager: ReportManager;
     @StateObject var report: Report = .init()
     @State private var showingReportPreview: Bool = false;
     @State private var showingErrorMessage: Bool = false;
+    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var selectedImage: UIImage?
+    @State private var isImagePickerDisplay = false
+    
     @State private var submitting: Bool = false;
     var body: some View {
         GeometryReader { _ in
@@ -67,10 +72,39 @@ struct ReportingInterface: View {
                             .modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
                     }
                     HStack {
-                        Image(systemName: "camera.aperture")
-                        Text("Add Photo")
+                        HStack {
+                            Image(systemName: "camera.aperture")
+                            Button("Take Photo"){
+                                self.sourceType = .camera
+                                self.isImagePickerDisplay.toggle()
+                            }
+                        }
+                        .modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
+                        HStack {
+                            Image(systemName: "photo")
+                            Button("Photo Library"){
+                                self.sourceType = .photoLibrary
+                                self.isImagePickerDisplay.toggle()
+                            }
+                        }
+                        .modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
                     }
-                    .modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
+                    .sheet(isPresented: self.$isImagePickerDisplay){
+                        ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+                    }
+                    
+                    if selectedImage != nil {
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .aspectRatio(contentMode:.fit)
+                            .frame(width: 150, height: 150)
+                    } else {
+                        Image(systemName: "camera")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 150, height: 150)
+                    }
+
                     HStack {
                         Text("Report address")
                             .bold()
