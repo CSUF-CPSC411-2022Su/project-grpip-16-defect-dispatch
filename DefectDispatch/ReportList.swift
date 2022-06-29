@@ -12,6 +12,7 @@ import SwiftUI
 
 struct ReportList: View {
     @EnvironmentObject var manager: ReportManager
+    @EnvironmentObject var photo: Report;
     // Implement data persistence to keep data even when your application restarts. You can use app storage, scene storage, or file saving/loading.
     @AppStorage("darkMode") var darkMode = 1;
     
@@ -35,12 +36,29 @@ struct ReportList: View {
                 // Implement advanced features for your app such as grids, tabbed views, page views, menus, drawing, animation, transitions, gestures, and/or interaction with a web API.
                 List {
                     ForEach(manager.reports) { reports in
-                        NavigationLink(destination: ReportView(description: reports.description, title: reports.name, address: reports.address)) {
+                        NavigationLink(destination: ReportView(description: reports.description, title: reports.name, address: reports.address, photo: reports.photo)) {
                             VStack (alignment: .leading) {
-                                Text(reports.name)
-                                    .font(.largeTitle)
-                                Text(reports.description)
-                                    .font(.caption)
+                                HStack{
+                                    VStack{
+                                        Text(reports.name)
+                                            .font(.largeTitle)
+                                        Text(reports.description)
+                                            .font(.caption)
+                                            .frame(alignment: .leading)
+                                    }
+                                    Spacer()
+                                    if reports.photo != nil {
+                                        Image(uiImage: reports.photo!)
+                                            .resizable()
+                                            .aspectRatio(contentMode:.fit)
+                                            .frame(width: 50, height: 50)
+                                    } else {
+                                        Image(systemName: "camera")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 50, height: 50)
+                                    }
+                                }
                             }
                         }.modifier(listModifier())
                     }
@@ -65,16 +83,26 @@ struct ReportView: View {
     @State var description = "";
     @State var title = "";
     @State var address = "";
+    @State var photo: UIImage?;
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 VStack {
                     Text(title)
                         .font(.largeTitle)
-                    Image("StopStreet")
+                    HStack{
+                        if photo != nil {
+                            Image(uiImage: photo!)
                                 .resizable()
-                                .scaledToFit()
-                                .frame(width:250, height: 250)
+                                .aspectRatio(contentMode:.fit)
+                                .frame(width: 150, height: 150)
+                        } else {
+                            Image(systemName: "camera")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 150, height: 150)
+                        }
+                    }
                 }
                 .frame(width: geometry.size.width, height:geometry.size.height/2)
                 VStack {

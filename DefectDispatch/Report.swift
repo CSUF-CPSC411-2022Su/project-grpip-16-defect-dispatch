@@ -8,6 +8,42 @@
 import Foundation
 import CoreLocation
 import SwiftUI
+import UIKit
+
+struct ImagePickerView: UIViewControllerRepresentable {
+    @Binding var selectedImage: UIImage?
+    @Environment(\.presentationMode) var isPresented
+    var sourceType: UIImagePickerController.SourceType
+    
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = self.sourceType
+        imagePicker.delegate = context.coordinator
+        return imagePicker
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(picker: self)
+    }
+}
+
+class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    var picker: ImagePickerView
+    
+    init(picker: ImagePickerView) {
+        self.picker = picker
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else { return }
+        self.picker.selectedImage = selectedImage
+        self.picker.isPresented.wrappedValue.dismiss()
+    }
+}
 
 enum ReportType: String, CaseIterable, Identifiable, Codable {
     static var allCases: [ReportType] {
@@ -39,6 +75,8 @@ class Report: ObservableObject, Identifiable, Codable, NSCopying {
     @Published var type: ReportType;
     @Published var severity: Severity
     @Published var description: String
+    @Published var photo: UIImage?
+    
     var valid: Bool {
         return severity != .unknown && type != .undefined && name != "" && address != ""
     }
@@ -50,6 +88,7 @@ class Report: ObservableObject, Identifiable, Codable, NSCopying {
         description = ""
         name = ""
         address = ""
+        photo = nil
     }
     func reinit() {
         id = UUID()
@@ -59,6 +98,7 @@ class Report: ObservableObject, Identifiable, Codable, NSCopying {
         description = ""
         name = ""
         address = ""
+        photo = nil
     }
     
     func copy(with zone: NSZone? = nil) -> Any {
@@ -73,7 +113,7 @@ class Report: ObservableObject, Identifiable, Codable, NSCopying {
     }
     // Based on https://www.hackingwithswift.com/books/ios-swiftui/adding-codable-conformance-for-published-properties
     enum CodingKeys: CodingKey {
-        case id, name, address, date, type, severity, description
+        case id, name, address, date, type, severity, description, photo
     }
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

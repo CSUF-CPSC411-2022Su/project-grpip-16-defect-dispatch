@@ -59,6 +59,28 @@ struct ViewReport: View {
                         .border(.gray, width: 2.0)
                 }
                 
+                if report.photo != nil {
+                    HStack{
+                        Spacer()
+                        Image(uiImage: report.photo!)
+                            .resizable()
+                            .frame(alignment: .center)
+                            .scaledToFit()
+                            .frame(width: 300, height: 300)
+                        Spacer()
+                    }
+                } else {
+                    HStack{
+                        Spacer()
+                        Image(systemName: "camera")
+                            .resizable()
+                            .frame(alignment: .center)
+                            .scaledToFit()
+                            .frame(width: 300, height: 300)
+                        Spacer()
+                    }
+                }
+                
             }.padding()
         }
         .navigationTitle("")

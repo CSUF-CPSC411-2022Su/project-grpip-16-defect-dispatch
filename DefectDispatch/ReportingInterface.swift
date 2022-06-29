@@ -7,7 +7,6 @@ struct ReportingInterface: View {
     @State private var showingReportPreview: Bool = false;
     @State private var showingErrorMessage: Bool = false;
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
-    @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     
     @State private var submitting: Bool = false;
@@ -90,11 +89,11 @@ struct ReportingInterface: View {
                         .modifier(RoundedButton(padding: 5, background: .blue, cornerRadius: 40))
                     }
                     .sheet(isPresented: self.$isImagePickerDisplay){
-                        ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
+                        ImagePickerView(selectedImage: self.$report.photo, sourceType: self.sourceType)
                     }
                     
-                    if selectedImage != nil {
-                        Image(uiImage: selectedImage!)
+                    if report.photo != nil {
+                        Image(uiImage: report.photo!)
                             .resizable()
                             .aspectRatio(contentMode:.fit)
                             .frame(width: 150, height: 150)
