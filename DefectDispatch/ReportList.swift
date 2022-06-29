@@ -53,7 +53,7 @@ struct ReportList: View {
                                             .aspectRatio(contentMode:.fit)
                                             .frame(width: 50, height: 50)
                                     } else {
-                                        Image(systemName: "camera")
+                                        Image(systemName: "StopStreet")
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
                                             .frame(width: 50, height: 50)
@@ -97,7 +97,7 @@ struct ReportView: View {
                                 .aspectRatio(contentMode:.fit)
                                 .frame(width: 150, height: 150)
                         } else {
-                            Image(systemName: "camera")
+                            Image(systemName: "StopStreet")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 150, height: 150)
