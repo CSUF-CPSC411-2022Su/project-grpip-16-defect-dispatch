@@ -113,7 +113,7 @@ class Report: ObservableObject, Identifiable, Codable, NSCopying {
     }
     // Based on https://www.hackingwithswift.com/books/ios-swiftui/adding-codable-conformance-for-published-properties
     enum CodingKeys: CodingKey {
-        case id, name, address, date, type, severity, description, photo
+        case id, name, address, date, type, severity, description
     }
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
