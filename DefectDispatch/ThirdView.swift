@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ThirdView: View {
-
     @ObservedObject var speed = Speed()
 
     var body: some View {
         Text("According to the recommand speed: \(speed.ideal_speed)mph")
         Text("Walk speed: 1-5mph\nBicycle speed: 6-15mph\nCar speed: 16-80mph")
-
-
 
             .padding()
         switch speed.ideal_speed {
@@ -28,12 +25,11 @@ struct ThirdView: View {
         default:
             Text("You will be late!\n There is no way you can arrive the destination in time ").font(.largeTitle).fontWeight(.heavy).foregroundColor(Color.orange).italic()
         }
-        
     }
 }
 
 struct ThirdView_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdView(speed:Speed())
+        ThirdView(speed: Speed())
     }
 }
